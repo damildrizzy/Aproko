@@ -25,6 +25,6 @@ app.use(require('morgan')('combined', {
 app.use('/', chatCat.router)
 
 
-chatCat.ioServer(app).listen(3000, () =>{
-    console.log("Chatcat is running on: ", 3000)
+chatCat.ioServer(app).listen(8080, () =>{
+    console.log("Chatcat is running on: ", 8080)
 });

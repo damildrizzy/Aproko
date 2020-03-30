@@ -3,6 +3,7 @@ const express = require("express");
 const app = express()
 const chatCat = require("./app");
 const passport = require("passport");
+const port = process.env.PORT // 8080
 
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
@@ -25,6 +26,6 @@ app.use(require('morgan')('combined', {
 app.use('/', chatCat.router)
 
 
-chatCat.ioServer(app).listen(8080, () =>{
-    console.log("Chatcat is running on: ", 8080)
+chatCat.ioServer(app).listen(port, () =>{
+    logger.log("Chatcat is running on: ", port)
 });

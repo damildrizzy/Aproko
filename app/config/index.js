@@ -8,14 +8,14 @@ if(process.env.NODE_ENV === 'production'){
         "google" : {
             "clientID": process.env.GoogleID,
             "clientSecret": process.env.GoogleSecret,
-            "callbackURL": process.env.host + "/auth/google/callbackURL",
-            "profileFields": process.env.GoogleprofileFields
+            "callbackURL": process.env.host + "/auth/google/callback",
+            "profileFields": ["id", "displayName", "photos"]
         },
          "facebook" : {
             "clientID": process.env.FbID,
             "clientSecret": process.env.FbSecret,
-            "callbackURL": process.env.host + "/auth/facebook/callbackURL",
-            "profileFields": process.env.FbProfileFields
+            "callbackURL": process.env.host + "/auth/facebook/callback",
+            "profileFields": ["id", "displayName", "photos"]
         }
     }
 }else{

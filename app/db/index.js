@@ -7,7 +7,7 @@ const logger = require('../logger');
 mongoose.connect(config.dbURI, {
     useNewUrlParser: true
 })
-.then(() => logger.log("Mongo Conn status: ", JSON.stringify(mongoose.connection.readyState)))
+.then(() => console.log("Mongo Conn status: ", JSON.stringify(mongoose.connection.readyState)))
 
 //log connection error
 mongoose.connection.on('error', error => logger.log('error', 'Mongo Error'))

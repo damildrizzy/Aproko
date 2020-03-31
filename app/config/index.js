@@ -8,7 +8,7 @@ if(process.env.NODE_ENV === 'production'){
         "google" : {
             "clientID": process.env.GoogleID,
             "clientSecret": process.env.GoogleSecret,
-            "callbackURL": "https://aprokoherokuapp.com/auth/google/callback",
+            "callbackURL": "https://aproko.herokuapp.com/auth/google/callback",
             "profileFields": ["id", "displayName", "photos"]
         },
          "facebook" : {

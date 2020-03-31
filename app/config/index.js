@@ -8,13 +8,14 @@ if(process.env.NODE_ENV === 'production'){
         "google" : {
             "clientID": process.env.GoogleID,
             "clientSecret": process.env.GoogleSecret,
-            "callbackURL": process.env.host + "/auth/google/callback",
+            "callbackURL": "https://aprokoherokuapp.com/auth/google/callback",
             "profileFields": ["id", "displayName", "photos"]
         },
          "facebook" : {
             "clientID": process.env.FbID,
             "clientSecret": process.env.FbSecret,
-            "callbackURL": process.env.host + "/auth/facebook/callback",
+            "callbackURL": "https://aproko.herokuapp.com/auth/facebook/callback",
+            "enableProof": true,
             "profileFields": ["id", "displayName", "photos"]
         }
     }

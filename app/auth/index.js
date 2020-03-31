@@ -15,7 +15,7 @@ module.exports = () =>{
         //find by id
         h.findById(id)
             .then(user => done(null, user))
-            .catch(error => logger.log("Error deserializing user: " + error))
+            .catch(error => console.log("Error deserializing user: ", error))
     })
 
     let authProcessor = (accessToken, refreshToken, profile, done) =>{
@@ -25,7 +25,7 @@ module.exports = () =>{
         }else{
              h.createNewUser(profile)                        
             .then(newChatUser => done(null, newChatUser))
-            .catch(error => logger.log("error creating new user"))
+            .catch(error => console.log("error creating new user"))
         }}
     passport.use(new GoogleStrategy(config.google, authProcessor))
     passport.use(new FacebookStrategy(config.facebook, authProcessor))

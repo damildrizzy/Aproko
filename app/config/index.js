@@ -1,6 +1,11 @@
 "use strict";
 
+
 if(process.env.NODE_ENV === 'production'){
+    let host = process.env.host;
+    if (host[-1] == '/'){
+        host = host.slice(0, -1)
+    }
     module.exports = {
         host : process.env.host || '',
         dbURI : process.env.dbURI,
@@ -8,13 +13,14 @@ if(process.env.NODE_ENV === 'production'){
         "google" : {
             "clientID": process.env.GoogleID,
             "clientSecret": process.env.GoogleSecret,
-            "callbackURL": "https://aproko.herokuapp.com/auth/google/callback",
-            "profileFields": ["id", "displayName", "photos"]
+            "callbackURL": host + "/auth/google/callback",
+            "profileFields": ["id", "displayName", "photos"],
+            "proxy": true
         },
          "facebook" : {
             "clientID": process.env.FbID,
             "clientSecret": process.env.FbSecret,
-            "callbackURL": "https://aproko.herokuapp.com/auth/facebook/callback",
+            "callbackURL": host + "/auth/facebook/callback",
             "enableProof": true,
             "profileFields": ["id", "displayName", "photos"]
         }

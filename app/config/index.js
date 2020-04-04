@@ -7,7 +7,7 @@ if(process.env.NODE_ENV === 'production'){
         host = host.slice(0, -1)
     }
     module.exports = {
-        host : process.env.host || '',
+        host : process.env.host || 8080,
         dbURI : process.env.dbURI,
         sessionSecret: process.env.sessionSecret,
         "google" : {

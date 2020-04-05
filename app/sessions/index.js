@@ -9,10 +9,10 @@ if(process.env.NODE_ENV === 'production'){
     module.exports = session({
         secret: config.sessionSecret,
         resave: false,
-        saveUninitialized: false,
-        store: new MongoStore({
-			mongooseConnection: db.Mongoose.connection
-		})
+        saveUninitialized: true,
+        // store: new MongoStore({
+		// 	mongooseConnection: db.Mongoose.connection
+		// })
     })
 }else{
     module.exports = session({

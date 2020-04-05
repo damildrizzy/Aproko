@@ -4,6 +4,12 @@ const router = require("express").Router();
 const passport = require("passport");
 const config = require("../config");
 
+var host = 'http://localhost:3000'
+if(process.env.NODE_ENV === 'production'){
+  host = 'https://aproko.herokuapp.com'
+}
+
+
 router.get('/', (req, res, next )=>{
     res.render('login')
 });
@@ -11,7 +17,7 @@ router.get('/', (req, res, next )=>{
 router.get('/rooms', [h.isAuthenticated, (req, res, next)=>{
     res.render('rooms', {
     	user: req.user,
-      host: config.host
+      host: host
     })
 }]);
 
@@ -24,7 +30,7 @@ router.get('/chat/:id', [h.isAuthenticated, (req, res, next)=>{
   }
   res.render('chatroom', {
     user: req.user,
-    host: config.host,
+    host: host,
     room: getRoom.room,
     roomID: getRoom.roomID
   })
